@@ -29,6 +29,9 @@ jobs:
         
       - name: Installing surge
         run: yarn global add surge
+      
+      - name: Adding CNAME file
+        run: echo ${{secrets.SURGE_DOMAIN}} > ./build/CNAME
         
       - name: Deploying react app on surge
-        run: surge ./ --token ${{secrets.SURGE_TOKEN}}
+        run: surge ./build --token ${{secrets.SURGE_TOKEN}}

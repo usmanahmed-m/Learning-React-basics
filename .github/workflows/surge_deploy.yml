@@ -28,7 +28,7 @@ jobs:
         run: yarn build
         
       - name: Installing surge
-        run: yarn add surge
+        run: yarn global add surge
         
       - name: Deploying react app on surge
         run: surge ./ --token ${{secrets.SURGE_TOKEN}}

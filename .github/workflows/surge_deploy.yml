@@ -19,8 +19,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      - uses: borales/actions-yarn@v2.0.0
+      
+      - name: Installing node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12
+      
+      
+      - name: Installing Yarn
+        uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
 
@@ -28,7 +35,7 @@ jobs:
         run: yarn build
         
       - name: Installing surge
-        run: yarn global add surge
+        run: npm install --global surge
       
       - name: Adding CNAME file
         run: echo ${{secrets.SURGE_DOMAIN}} > ./build/CNAME

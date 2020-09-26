@@ -20,8 +20,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Installing Yarn
-        uses: borales/actions-yarn@2.3.0
+      - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
 
